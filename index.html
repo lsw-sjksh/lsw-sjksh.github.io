@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <script src="js/echarts.min.js"></script>
+  </head>
+  <body>
+    <div id="li" style="width: 600px;height:400px; left:30%;"></div>
+    <script type="text/javascript">
+     
+      var myChart = echarts.init(document.getElementById('li'));
+      
+      option = {
+        title: {
+          text: "成都五大区就业分析",
+          left:"center",
+         
+        },  
+  legend: {top:"7%"},
+  tooltip: { },
+  dataset: { 
+    source: [
+      ['product', '青羊区', '锦江区', '金牛区', '成华区', '武侯区'],
+      ['3000', 43, 85, 93,60,75],
+      ['3000~6000', 83, 73, 55,84,56],
+      ['6000~10000', 86, 65, 82,36,48],
+      ['10000~15000', 72, 53, 39,90,94]
+    ]
+  },
+  xAxis: { type: 'category' },
+  yAxis: {},
+  series: [{ type: 'bar' }, { type: 'bar' }, { type: 'bar' }, { type: 'bar' }, { type: 'bar' }]
+};
+      myChart.setOption(option);
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="js/echarts.min.js"></script>
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="height:600px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      // 指定图表的配置项和数据
+      option = {
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+    top: '5%',
+    left: 'center'
+  },
+  series: [
+    {
+      type: 'pie',
+      radius: ['20%', '70%'],
+      avoidLabelOverlap: false,
+      label: {
+        show: false,
+        position: 'center'
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 20, name: '双鱼' },
+        { value: 13, name: '金牛' },
+        { value: 9, name: '天枰' },
+        { value: 21, name: '狮子' },
+        { value: 15, name: '白羊' }
+      ],
+      roseType: "radius"
+    }
+  ]
+};
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+      window.onresize = function() {
+    myChart.resize(
+      {
+        width: 800,
+       height: 400
+      }
+    );
+  };
+    </script>
+  </body>
+</html>
